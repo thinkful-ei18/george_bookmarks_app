@@ -5,26 +5,44 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Page Title</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-        <script src="main.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">   
+        <link rel="stylesheet" type="text/css" media="screen" href="styles/main.css" />
     </head>
     <body>
         <div class="container">
-            <h1>Shopping List</h1>
-            <form id="js-shopping-list-form">
-                <label for="shopping-list-entry">Add an item</label>
-                <input type="text" name="shopping-list-entry" class="js-shopping-list-entry" placeholder="e.g., broccoli">
+            <h1>These Are A Few Of My Favorite Things</h1>
+            <form id="js-bookmark-list-form">
+                <label for="bookmark-list-entry">Bookmark a website</label>
+                <input type="text" name="bookmark-list-entry" class="js-shopping-list-entry" placeholder="">
                 <button type="submit">Add item</button>
-                <div>
-                    <input type="checkbox" id="filter-checked" class="filter-checked js-filter-checked" />
-                    <label for="filter-checked">Hide Checked</label>
-                </div>
-                <div>
-                    <label for="js-shopping-list-search-entry">Search:</label>
-                    <input type="text" name="shopping-list-search-entry" class="js-shopping-list-search-entry" />
-                </div>
             </form>
-            <ul class="shopping-list js-shopping-list">
+            <div class="dropdown">
+                <button class="dropbtn">Minimum Rating</button>
+                    <div class="dropdown-content">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                    </div>
+            </div>
+            <ul class="">
+                <li>
+                    <!-- sample list element below -->
+                    <div>
+                        <div class="name">
+                            <span>Cats: The Movie</span>
+                        </div>
+                        <div class="ratings">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </div>
+                    </div>
+                    <!-- end of sample list element -->
+                </li>
+
             </ul>
         </div>
         
@@ -37,6 +55,6 @@
         <script type="text/javascript" src="scripts/bookmark.js"></script>
         <script type="text/javascript" src="scripts/bookmark-list.js"></script>
         <script type="text/javascript" src="scripts/api.js"></script>
-        <script type="text/javascript" src="scripts/index.js"></script>
+        <script type="text/javascript" src="scripts/main.js"></script>
     </body>
 </html>
