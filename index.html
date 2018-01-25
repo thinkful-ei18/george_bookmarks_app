@@ -11,20 +11,26 @@
     <body>
         <div class="container">
             <h1>Marking Up Books</h1>
-            <form id="js-bookmark-list-form">
-                <label for="bookmark-list-entry">Bookmark a website</label>
-                <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="">
-                <button type="submit">Add item</button>
-            </form>
-            <div class="dropdown">
-                <button class="dropbtn">Minimum Rating</button>
-                    <div class="dropdown-content">
-                        <a href="#">1</a>
-                        <a href="#">2</a>
-                        <a href="#">3</a>
-                        <a href="#">4</a>
-                    </div>
+            <div>
+                <form id="js-bookmark-list-form">
+                    <label for="bookmark-list-entry">Bookmark a website</label>
+                    <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="">
+                    <button type="submit">Add item</button>
+                </form>
+                        <form action="">
+                            <label for="filter-by-number">Minimum Rating</label>
+                            <select name="filter-by-number" placeholder="no selection">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                            </select>
+                            <input type="submit" value="Submit">
+                        </form>
             </div>
+            <datagrid>
+
+            </datagrid>
             <ul class="">
                 <li>
                     <!-- sample list element below -->
@@ -37,8 +43,7 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
-                            <textarea placeholder="put your text here"></textarea>
+                            <span class="fa fa-star"></span>                            
                         </div>
                         <label class="switch">
                             <input type="checkbox">
