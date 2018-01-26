@@ -4,6 +4,7 @@
 const bookmarkList = (function () {
 
   function generateItemElement(item) {
+
     let itemTitle = `<span class="bookmark-item bookmark-item__checked">${item.name}</span>`;
     if (!item.checked) {
       itemTitle = `
@@ -20,26 +21,39 @@ const bookmarkList = (function () {
           <button class="bookmark-item-toggle js-item-toggle">
             <span class="button-label">check</span>
           </button>
-          <div class="ratings">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-          </div>
+          <radio>
+            <form action="">
+              <input type="radio" name="rating" value=1>1<br>
+              <input type="radio" name="rating" value=2>2<br>
+              <input type="radio" name="rating" value=3>3<br>
+              <input type="radio" name="rating" value=4>4<br>
+              <input type="radio" name="rating" value=5>5<br>
+            </form>
+          </radio> 
+          <textarea>
+            <input type="text">Description of the site</input>
+          </textarea>
+       </div>
           <button class="bookmark-item-delete js-item-delete">
             <span class="button-label">delete</span>
           </button>
           <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" class="bookmark-item-toggle js-item-toggle">
             <span class="slider round"></span>
           </label>
         </div>
       </li>`;
 
-
+      
     
   }
+
+  //          <div class="ratings">
+  // <span class="fa fa-star checked"></span>
+  //   <span class="fa fa-star checked"></span>
+  //   <span class="fa fa-star checked"></span>
+  //   <span class="fa fa-star"></span>
+  //   <span class="fa fa-star"></span>
 
 //   <li class="js-item-element" data-item-id="${item.id}"> ${itemTitle}
 //     <div class="bookmark-item-controls">
