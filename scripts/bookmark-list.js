@@ -1,7 +1,7 @@
 /* global api bookmark newItemName */
 'use strict';
 // eslint-disable-next-line no-unused-vars
-const shoppingList = (function () {
+const bookmarkList = (function () {
 
   function generateItemElement(item) {
     let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
@@ -27,6 +27,27 @@ const shoppingList = (function () {
       </li>`;
   }
 
+  <li>
+    <!-- sample list element below -->
+                    <div class="box">
+      <div class="name" name="site name">
+        <span>Cats: The Movie</span>
+      </div>
+      <div class="ratings">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+        <span class="fa fa-star"></span>
+      </div>
+      <label class="switch">
+        <input type="checkbox">
+          <span class="slider round"></span>
+                        </label>
+                    </div>
+      <!-- end of sample list element -->
+                </li>
+
 
   function generateBookmarkItemsString(bookmarkList) {
     const items = bookmarkList.map((item) => generateItemElement(item));
@@ -51,15 +72,15 @@ const shoppingList = (function () {
     const bookmarkListItemsString = generateBookmarkItemsString(items);
 
     // insert that HTML into the DOM
-    $('.js-shopping-list').html(bookmarkListItemsString);
+    $('.js-bookmark-list').html(bookmarkListItemsString);
   }
 
 
   function handleNewItemSubmit() {
-    $('#js-shopping-list-form').submit(function (event) {
+    $('#js-bookmark-list-form').submit(function (event) {
       event.preventDefault();
-      const newItemName = $('.js-shopping-list-entry').val();
-      $('.js-shopping-list-entry').val('');
+      const newItemName = $('.js-bookmark-list-entry').val();
+      $('.js-bookmark-list-entry').val('');
       api.createItem(newItemName, (newItem) => {
         bookmark.addItem(newItem);
         render();
@@ -74,7 +95,7 @@ const shoppingList = (function () {
   }
 
   function handleItemCheckClicked() {
-    $('.js-shopping-list').on('click', '.js-item-toggle', event => {
+    $('.js-bookmark-list').on('click', '.js-item-toggle', event => {
       const id = getItemIdFromElement(event.currentTarget);
       const item = bookmark.findById(id);
       api.updateItem(id, { checked: !item.checked }, () => {
@@ -86,7 +107,7 @@ const shoppingList = (function () {
 
   function handleDeleteItemClicked() {
     // like in `handleItemCheckClicked`, we use event delegation
-    $('.js-shopping-list').on('click', '.js-item-delete', event => {
+    $('.js-bookmark-list').on('click', '.js-item-delete', event => {
       // get the index of the item in bookmark.items
       const id = getItemIdFromElement(event.currentTarget);
       // delete the itegim
@@ -98,10 +119,10 @@ const shoppingList = (function () {
   }
 
   function handleEditBookmarkItemSubmit() {
-    $('.js-shopping-list').on('submit', '#js-edit-item', event => {
+    $('.js-bookmark-list').on('submit', '#js-edit-item', event => {
       event.preventDefault();
       const id = getItemIdFromElement(event.currentTarget);
-      const itemName = $(event.currentTarget).find('.shopping-item').val();
+      const itemName = $(event.currentTarget).find('.bookmark-item').val();
       api.updateItem(id, { name: itemName }, () => {
         bookmark.findAndUpdateName(id, { name: itemName });
         render();
@@ -119,7 +140,7 @@ const shoppingList = (function () {
   }
 
   function handleBookmarkListSearch() {
-    $('.js-shopping-list-search-entry').on('keyup', event => {
+    $('.js-bookmark-list-search-entry').on('keyup', event => {
       const val = $(event.currentTarget).val();
       bookmark.setSearchTerm(val);
       render();

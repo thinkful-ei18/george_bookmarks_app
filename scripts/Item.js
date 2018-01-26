@@ -11,7 +11,7 @@ const Item = (function () {
       id: cuid(),
       name,
       rating: false,
-      newTitle: /* from event listener */
+      newTitle: false,/* from event listener */
       editing: false /* triggered by event listener on title */
     };
   };
