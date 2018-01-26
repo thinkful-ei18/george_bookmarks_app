@@ -6,8 +6,8 @@ const Item = (function () {
     return {
       id: cuid(),
       name, 
-      site: false
-      description: false
+      site: false,
+      description: false,
       rating: false,
       newTitle: false,/* from event listener */
       editing: false /* triggered by event listener on toggle switch */

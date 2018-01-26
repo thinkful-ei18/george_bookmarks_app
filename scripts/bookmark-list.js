@@ -6,18 +6,9 @@ const bookmarkList = (function () {
   function generateItemElement(item) {
 
     let itemTitle = `<span class="bookmark-item bookmark-item__checked">${item.name}</span>`;
+    let content; 
     if (!item.checked) {
-      itemTitle = `
-        <form id="js-edit-item">
-          <input class="bookmark-item type="text" value="${item.name}" />
-        </form>
-      `;
-    }
-
-    return `
-      <li class="js-item-element" data-item-id="${item.id}">
-
-                          <div class="box">
+      content = `<div class="box">
                         <div class="name" name="site name">
                             <span>Cats: The Movie</span>
                         </div>
@@ -27,18 +18,20 @@ const bookmarkList = (function () {
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
                             <span class="fa fa-star"></span>                            
-                        </div>
+                        </div>ç
                         <label class="switch">
-                            <input type="checkbox">
+                            <input type="checkbox" class="bookmark-item-toggle js-item-toggle">
                             <span class="slider round"></span>
                         </label>
-                    </div>
-                    
-        ${itemTitle} 
-        <div class="bookmark-item-controls">
-          <button class="bookmark-item-toggle js-item-toggle">
-            <span class="button-label">check</span>
-          </button>
+                    </div>`
+      itemTitle = `
+        <form id="js-edit-item">
+          <input class="bookmark-item type="text" value="${item.name}" />
+        </form>
+      `;
+    }
+    else {
+      content = `<div class="bookmark-item-controls">
           <radio>
             <form action="">
               <input type="radio" name="rating" value=1>1<br>
@@ -48,8 +41,7 @@ const bookmarkList = (function () {
               <input type="radio" name="rating" value=5>5<br>
             </form>
           </radio> 
-          <textarea>
-            <input type="text">Description of the site</input>
+          <textarea placeholder="insert Description here">
           </textarea>
        </div>
           <button class="bookmark-item-delete js-item-delete">
@@ -59,7 +51,12 @@ const bookmarkList = (function () {
             <input type="checkbox" class="bookmark-item-toggle js-item-toggle">
             <span class="slider round"></span>
           </label>
-        </div>
+        </div>`;
+    }
+    return `
+      <li class="js-item-element" data-item-id="${item.id}">
+        ${itemTitle} 
+        ${content}
       </li>`;
 
       
