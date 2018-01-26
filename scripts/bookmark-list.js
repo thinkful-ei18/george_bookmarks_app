@@ -46,12 +46,12 @@ const shoppingList = (function () {
       items = bookmark.items.filter(item => item.name.includes(bookmark.searchTerm));
     }
 
-    // render the shopping list in the DOM
+    // render the bookmark list in the DOM
     console.log('`render` ran');
-    const shoppingListItemsString = generateShoppingItemsString(items);
+    const bookmarkListItemsString = generateBookmarkItemsString(items);
 
     // insert that HTML into the DOM
-    $('.js-shopping-list').html(shoppingListItemsString);
+    $('.js-shopping-list').html(bookmarkListItemsString);
   }
 
 
@@ -97,7 +97,7 @@ const shoppingList = (function () {
     });
   }
 
-  function handleEditShoppingItemSubmit() {
+  function handleEditBookmarkItemSubmit() {
     $('.js-shopping-list').on('submit', '#js-edit-item', event => {
       event.preventDefault();
       const id = getItemIdFromElement(event.currentTarget);
