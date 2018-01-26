@@ -4,49 +4,59 @@
 const bookmarkList = (function () {
 
   function generateItemElement(item) {
-    let itemTitle = `<span class="shopping-item shopping-item__checked">${item.name}</span>`;
+    let itemTitle = `<span class="bookmark-item bookmark-item__checked">${item.name}</span>`;
     if (!item.checked) {
       itemTitle = `
         <form id="js-edit-item">
-          <input class="shopping-item type="text" value="${item.name}" />
+          <input class="bookmark-item type="text" value="${item.name}" />
         </form>
       `;
     }
 
     return `
       <li class="js-item-element" data-item-id="${item.id}">
-        ${itemTitle}
-        <div class="shopping-item-controls">
-          <button class="shopping-item-toggle js-item-toggle">
+        ${itemTitle} 
+        <div class="bookmark-item-controls">
+          <button class="bookmark-item-toggle js-item-toggle">
             <span class="button-label">check</span>
           </button>
-          <button class="shopping-item-delete js-item-delete">
+          <div class="ratings">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <button class="bookmark-item-delete js-item-delete">
             <span class="button-label">delete</span>
           </button>
+          <label class="switch">
+            <input type="checkbox">
+            <span class="slider round"></span>
+          </label>
         </div>
       </li>`;
+
+
+    
   }
 
-  <li>
-    <!-- sample list element below -->
-                    <div class="box">
-      <div class="name" name="site name">
-        <span>Cats: The Movie</span>
-      </div>
-      <div class="ratings">
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star checked"></span>
-        <span class="fa fa-star"></span>
-        <span class="fa fa-star"></span>
-      </div>
-      <label class="switch">
-        <input type="checkbox">
-          <span class="slider round"></span>
-                        </label>
-                    </div>
-      <!-- end of sample list element -->
-                </li>
+//   <li class="js-item-element" data-item-id="${item.id}"> ${itemTitle}
+//     <div class="bookmark-item-controls">
+//       <div class="ratings">
+//         <span class="fa fa-star checked"></span>
+//         <span class="fa fa-star checked"></span>
+//         <span class="fa fa-star checked"></span>
+//         <span class="fa fa-star"></span>
+//         <span class="fa fa-star"></span>
+//       </div>
+//       <label class="switch">
+//         <input type="checkbox">
+//           <span class="slider round"></span>
+//                         </label>
+//     </div>
+//       <!-- end of sample list element -->
+// </li>
 
 
   function generateBookmarkItemsString(bookmarkList) {

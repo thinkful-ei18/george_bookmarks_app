@@ -12,7 +12,7 @@ const Item = (function () {
       name,
       rating: false,
       newTitle: false,/* from event listener */
-      editing: false /* triggered by event listener on title */
+      editing: false /* triggered by event listener on toggle switch */
     };
   };
 

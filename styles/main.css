@@ -1,4 +1,4 @@
-* {
+/* * {
     box-sizing: border-box;
 }
 
@@ -10,6 +10,59 @@ h1 {
 .container {
     max-width: 600px;
     margin: 0 auto;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+button,
+input[type="text"] {
+    padding: 5px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    display: none;
+}
+
+#bookmark-list-item {
+    width: 250px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.bookmark-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.bookmark-list>li {
+    margin-bottom: 20px;
+    border: 1px solid grey;
+    padding: 20px;
+}
+
+.bookmark-item {
+    display: block;
+    color: grey;
+    font-style: italic;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.bookmark-item__checked {
+    text-decoration: line-through;
 }
 
 /* buttons https://www.w3schools.com/howto/howto_css_switch.asp */
@@ -88,5 +141,9 @@ input:checked + .slider:before {
       border: 1px solid grey;
       padding: 20px;
       list-style: none;
+}
+
+.checked {
+    color: orange;
 }
 

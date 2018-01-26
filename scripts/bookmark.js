@@ -41,10 +41,6 @@ const bookmark = (function () {
     Object.assign(modifyingItem, newData);
   };
 
-
-
-
-
   const toggleCheckedFilter = function () {
     this.hideCheckedItems = !this.hideCheckedItems;
   };

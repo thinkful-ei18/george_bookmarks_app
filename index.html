@@ -11,12 +11,11 @@
     <body>
         <div class="container">
             <h1>Marking Up Books</h1>
-            <div>
-                <form id="js-bookmark-list-form">
+            <form id="js-bookmark-list-form">
                     <label for="bookmark-list-entry">Bookmark a website</label>
                     <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="">
-                    <button type="submit">Add item</button>
-                </form>
+                    <button type="submit">Add Bookmark</button>
+            </form>
                         <form action="">
                             <label for="filter-by-number">Minimum Rating</label>
                             <select name="filter-by-number" placeholder="no selection">
@@ -27,12 +26,29 @@
                             </select>
                             <input type="submit" value="Submit">
                         </form>
-            </div>
-            <datagrid>
-
-            </datagrid>
-            <ul class="">
-
+            <ul class="bookmark-list ">
+                    <li class="js-item-element" data-item-id="${item.id}">
+                        ${itemTitle}
+                        <div class="bookmark-item-controls">
+                            <button class="bookmark-item-toggle js-item-toggle">
+                                <span class="button-label">check</span>
+                            </button>
+                            <div class="ratings">
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <span class="fa fa-star"></span>
+                            </div>
+                            <button class="bookmark-item-delete js-item-delete">
+                                <span class="button-label">delete</span>
+                            </button>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </li>
 
             </ul>
         </div>
