@@ -1,4 +1,4 @@
-/* global api store newItemName */
+/* global api bookmark newItemName */
 'use strict';
 // eslint-disable-next-line no-unused-vars
 const shoppingList = (function () {
@@ -28,20 +28,20 @@ const shoppingList = (function () {
   }
 
 
-  function generateShoppingItemsString(shoppingList) {
-    const items = shoppingList.map((item) => generateItemElement(item));
+  function generateBookmarkItemsString(bookmarkList) {
+    const items = bookmarkList.map((item) => generateItemElement(item));
     return items.join('');
   }
 
 
   function render() {
-    // Filter item list if store prop is true by item.checked === false
+    // Filter item list if bookmark prop is true by item.checked === false
     let items = bookmark.items;
     if (bookmark.hideCheckedItems) {
       items = bookmark.items.filter(item => !item.checked);
     }
 
-    // Filter item list if store prop `searchTerm` is not empty
+    // Filter item list if bookmark prop `searchTerm` is not empty
     if (bookmark.searchTerm) {
       items = bookmark.items.filter(item => item.name.includes(bookmark.searchTerm));
     }
@@ -76,9 +76,9 @@ const shoppingList = (function () {
   function handleItemCheckClicked() {
     $('.js-shopping-list').on('click', '.js-item-toggle', event => {
       const id = getItemIdFromElement(event.currentTarget);
-      const item = store.findById(id);
+      const item = bookmark.findById(id);
       api.updateItem(id, { checked: !item.checked }, () => {
-        store.findAndUpdate(id, { checked: !item.checked });
+        bookmark.findAndUpdate(id, { checked: !item.checked });
         render();
       });
     });
@@ -87,7 +87,7 @@ const shoppingList = (function () {
   function handleDeleteItemClicked() {
     // like in `handleItemCheckClicked`, we use event delegation
     $('.js-shopping-list').on('click', '.js-item-delete', event => {
-      // get the index of the item in store.items
+      // get the index of the item in bookmark.items
       const id = getItemIdFromElement(event.currentTarget);
       // delete the itegim
       api.deleteItem(id, () => {
@@ -113,15 +113,15 @@ const shoppingList = (function () {
 
   function handleToggleFilterClick() {
     $('.js-filter-checked').click(() => {
-      store.toggleCheckedFilter();
+      bookmark.toggleCheckedFilter();
       render();
     });
   }
 
-  function handleShoppingListSearch() {
+  function handleBookmarkListSearch() {
     $('.js-shopping-list-search-entry').on('keyup', event => {
       const val = $(event.currentTarget).val();
-      store.setSearchTerm(val);
+      bookmark.setSearchTerm(val);
       render();
     });
   }
@@ -130,9 +130,9 @@ const shoppingList = (function () {
     handleNewItemSubmit();
     handleItemCheckClicked();
     handleDeleteItemClicked();
-    handleEditShoppingItemSubmit();
+    handleEditBookmarkItemSubmit();
     handleToggleFilterClick();
-    handleShoppingListSearch();
+    handleBookmarkListSearch();
   }
 
   // This object contains the only exposed methods from this module:
