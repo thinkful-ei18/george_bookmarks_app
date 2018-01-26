@@ -10,13 +10,27 @@
     </head>
     <body>
         <div class="container">
-            <h1>Marking Up Books</h1>
+            <h1>Create A New Bookmark</h1>
             <form id="js-bookmark-list-form">
-                    <label for="bookmark-list-entry">Add a New Website</label>
-                    <input type="button" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="Website Name here">
-
+                    <label for="bookmark-list-entry">Title</label>
+                    <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="">
+                    <button type="submit">Add Bookmark</button>
+                <label for="filter-by-number">Minimum Rating</label>
+                <select name="filter-by-number" placeholder="no selection">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+                <input type="submit" value="Submit" class="js-bookmark-list-entry">
+            </form>
+            <form id="js-bookmark-list-form">
+                <label for="description of website">Description</label>
+                <input type="text" name="bookmark-list-entry" class="js-bookmark-list-entry" placeholder="">
+                <button type="submit">Add Bookmark</button>
+            </form>
             <ul class="bookmark-list js-bookmark-list">
-              
+                    
 
             </ul>
         </div>

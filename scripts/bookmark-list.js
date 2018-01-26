@@ -16,6 +16,24 @@ const bookmarkList = (function () {
 
     return `
       <li class="js-item-element" data-item-id="${item.id}">
+
+                          <div class="box">
+                        <div class="name" name="site name">
+                            <span>Cats: The Movie</span>
+                        </div>
+                        <div class="ratings">
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>                            
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                    
         ${itemTitle} 
         <div class="bookmark-item-controls">
           <button class="bookmark-item-toggle js-item-toggle">
